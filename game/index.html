@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solmar Bay — an open-world crime game</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.min.js" } }
+</script>
+</head>
+<body>
+<canvas id="game-canvas"></canvas>
+
+<div id="hud">
+  <div id="top-left" class="panel">
+    <div id="money">$150</div>
+    <div id="health-row">
+      <span class="label">Health</span>
+      <div id="health-bar"><div id="health-fill"></div></div>
+      <span id="health-num">100</span>
+    </div>
+    <div id="ammo"></div>
+  </div>
+
+  <div id="top-center" class="panel">
+    <div id="objective">Welcome to Solmar Bay</div>
+    <div id="objective-dist"></div>
+  </div>
+
+  <div id="top-right" class="panel">
+    <div id="stars">☆☆☆☆☆</div>
+    <div id="speed-wrap"><span id="speed"></span> <span id="speed-unit"></span></div>
+  </div>
+
+  <div id="toast"></div>
+
+  <div id="banner">
+    <div id="banner-title"></div>
+    <div id="banner-sub"></div>
+  </div>
+
+  <canvas id="minimap" width="180" height="180"></canvas>
+  <div id="hint">WASD move · E take car · F shoot · M mission</div>
+</div>
+
+<div id="menu" class="overlay show">
+  <div class="overlay-card">
+    <h1>SOLMAR BAY</h1>
+    <p class="tagline">An open-world crime story. Six jobs. One last score.</p>
+    <p class="story">Lucia Vega is back in Solmar Bay, broke and wanted. Marco has work — steal cars,
+      run packages, lose the heat, and pull the last score at the pier. Explore the city on foot
+      or by car, watch the wanted stars, and finish all six missions.</p>
+    <div class="controls">
+      <span><b>WASD</b> drive / move</span>
+      <span><b>E</b> take car / exit</span>
+      <span><b>F</b> shoot</span>
+      <span><b>M</b> start mission</span>
+      <span><b>Esc</b> pause</span>
+      <span>Drag mouse to look around</span>
+    </div>
+    <div class="buttons">
+      <button id="btn-new" class="primary">New game</button>
+      <button id="btn-continue">Continue</button>
+    </div>
+  </div>
+</div>
+
+<div id="pause" class="overlay">
+  <div class="overlay-card">
+    <h1>PAUSED</h1>
+    <p class="tagline">Solmar Bay waits for no one. Except now.</p>
+    <div class="buttons">
+      <button id="btn-resume" class="primary">Resume</button>
+      <button id="btn-restart">Restart story</button>
+    </div>
+  </div>
+</div>
+
+<div id="busted" class="overlay">
+  <div class="overlay-card">
+    <h1>BUSTED</h1>
+    <p class="tagline">The Solmar Bay police took you in. Marco posted bail — $200.</p>
+    <div class="buttons">
+      <button id="btn-busted" class="primary">Get out — $200</button>
+    </div>
+  </div>
+</div>
+
+<div id="wasted" class="overlay">
+  <div class="overlay-card">
+    <h1>WASTED</h1>
+    <p class="tagline">You woke up at the plaza clinic. The bill is $100.</p>
+    <div class="buttons">
+      <button id="btn-wasted" class="primary">Walk it off — $100</button>
+    </div>
+  </div>
+</div>
+
+<div id="complete" class="overlay">
+  <div class="overlay-card">
+    <h1>CAMPAIGN COMPLETE</h1>
+    <p class="tagline">All six jobs done. $4,500 earned. Solmar Bay is yours, Lucia.</p>
+    <div class="buttons">
+      <button id="btn-complete-again" class="primary">Play again</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
